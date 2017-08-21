@@ -6,6 +6,11 @@ element.innerHTML = "Hello fellas!!!";
 
 // Move the image to right
 var img = document.getElementById('madi');
+var marginLeft = 0;
+function moveRight () {
+    marginLeft = marginLeft + 10;
+    img.style.marginLeft = marginLeft + 'px';
+}
 img.onclick = function () {
-    img.style.marginLeft = '80px';
+    var interval = setInetrval(moveRight,100);
 };
