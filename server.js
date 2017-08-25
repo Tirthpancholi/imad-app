@@ -85,6 +85,16 @@ app.get('/counter', function(req, res)
 { counter = counter + 1;
 res.send(counter.toString());
 });
+var names = [];
+app.get('/submit-name', function(req, res){ // URL: /submit-name?name=xxxxx 
+  // Get the name from the request
+  var name = req.query.name;
+  
+  names.push(name);
+  // JSON: JavaScript Object Notation
+  res.send( JSON.stringify(names));
+    
+});
 
 app.get('/:articleName', function(req, res){
     // articleName == article-one
@@ -107,16 +117,6 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var names = [];
-app.get('/submit-name', function(req, res){ // URL: /submit-name?name=xxxxx 
-  // Get the name from the request
-  var name = req.query.name;
-  
-  names.push(name);
-  // JSON: JavaScript Object Notation
-  res.send( JSON.stringify(names));
-    
-});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
