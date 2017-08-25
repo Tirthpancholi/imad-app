@@ -2,10 +2,10 @@
 var button = document.getElementById('counter');
 
 button.onclick = function () {
-    //Create a request object
+    // Create a request object
     var request = new XMLHttpRequest();
     
-    //Capture the response and store it in a variable
+    // Capture the response and store it in a variable
     request.onreadystatechange = function() {
         if (request.readystate === XMLHttpRequest.Done){
         //Take some action
@@ -15,10 +15,10 @@ button.onclick = function () {
     span.innerHTML = counter.toString();
            } 
         }
-    //Not done yet
+    // Not done yet
     };
-    //Make the request
-    request.open('tirthinbusn.imad.hasura-app.io/counter', true);
+    // Make the request
+    request.open('GET', 'http://tirthinbusn.imad.hasura-app.io/counter', true);
     request.send(null);
     
 };
