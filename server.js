@@ -119,7 +119,7 @@ app.get('/submit-name', function(req, res){ // /submit-name?name=xxxxx
 
 app.get('/articles/:articleName', function(req, res){
     // articleName == article-one
-    //articlename == {} content object for article one
+    //articles[articlename] == {} content object for article one
     
     pool.query("Select * from WHERE title = " + req.params.articleName, function (err, result){
        if(err){
