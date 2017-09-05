@@ -54,7 +54,7 @@ function createTemplate (data) {
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
-
+    var crypto = require('crypto');
 var htmlTemplate = `<html>
 <head>
     <title>
@@ -87,6 +87,18 @@ return htmlTemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+function hash (input,salt){
+   //how do we creata hash?
+   var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512,'sha512');
+   return hashed.toString('hex');
+}
+app.get('/hash/:input', function(req, res){
+var hashedString = hash(req.params.input, 'this is some random string');
+res.send(hashedString);
+});
+
+
+
 var pool = new Pool(config);
 app.get('/test-db', function (req, res){
     //make a select request
