@@ -105,6 +105,7 @@ res.send(hashedString);
 
 app.post('/create-user/', function(req, res){
    //username, password
+   //{"username": "tirth", "password": "password"}
    //JSON
    var username = req.body.username;
    var password = req.body.password;
